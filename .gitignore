@@ -15,7 +15,6 @@ frontend/coverage
 backend/build/
 
 # JetBrains IDEs
-backend/.idea/
 frontend/.idea/
 
 # Optional eslint cache
