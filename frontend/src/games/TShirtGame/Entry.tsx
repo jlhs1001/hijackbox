@@ -1,6 +1,12 @@
-import * as React from "react";
+import React, { useEffect } from "react";
+import { io } from "socket.io-client";
 
 const Entry = () => {
+  useEffect(() => {
+    const socket = io();
+
+  }, []);
+
   return (
     <div>
       Hello world
