@@ -4,8 +4,17 @@
     "module": "ES2020",
     "lib": ["ES2020"],
     "moduleResolution": "node",
-    "rootDir": ".",
+    "rootDirs": [
+      ".",
+      "../global"
+    ],
     "outDir": "build",
+    "paths": {
+      "global": [
+        "../global/Server.ts",
+        "../global/Client.ts"
+      ]
+    },
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "alwaysStrict": true,
