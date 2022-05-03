@@ -1,0 +1,35 @@
+backend/node_modules
+frontend/node_modules
+
+# testing
+fronted/coverage
+backend/coverage
+
+# production
+fronted/build
+backend/build
+
+# misc
+frontend/.DS_Store
+backend/.DS_Store
+.DS_Store
+
+frontend/.env
+backend/.env
+
+frontend/.idea
+backend/.idea
+.idea
+
+npm-debug.log
+
+##
+
+# Logs
+logs
+*.log
+
+.npm
+
+# Optional eslint cache
+backend/.eslintcache
