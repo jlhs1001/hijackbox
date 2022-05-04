@@ -1,5 +1,6 @@
 backend/node_modules
 frontend/node_modules
+global/node_modules
 
 # testing
 fronted/coverage
@@ -8,10 +9,12 @@ backend/coverage
 # production
 fronted/build
 backend/build
+global/build
 
 # misc
 frontend/.DS_Store
 backend/.DS_Store
+global/.DS_Store
 .DS_Store
 
 frontend/.env
@@ -19,6 +22,7 @@ backend/.env
 
 frontend/.idea
 backend/.idea
+global/.idea
 .idea
 
 npm-debug.log

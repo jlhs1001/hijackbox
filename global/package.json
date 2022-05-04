@@ -1,12 +1,19 @@
 {
   "name": "hjb-global",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
-  "main": "Server.js",
+  "main": "build/Index.js",
+  "typings": "src/Index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "start": "node build/Index.js"
   },
   "author": "jlhs1001",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.6.4"
+  }
 }

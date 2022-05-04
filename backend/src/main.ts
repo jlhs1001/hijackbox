@@ -38,12 +38,9 @@ function basicLog(message: string, loglevel: string) {
 }
 
 import {
-
-  // ClientToServerEvents,
-  // ServerToClientEvents,
-  // InterServerEvents,
-  // SocketData,
-} from 'hjb-global';
+  port,
+  origin,
+} from "hjb-global";
 
 import {
   createServer,
