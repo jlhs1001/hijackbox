@@ -1,55 +1,23 @@
-import fs from 'fs';
-import path from 'path';
+// import { fileURLToPath } from 'url';
+// import fs from 'fs';
+// import path, {
+//   dirname
+// } from 'path';
 
-export function debug(message: string) {
-  basicLog(message, 'WARNING');
-}
 
-export function info(message: string) {
-  basicLog(message, 'WARNING');
-}
 
-export function warning(message: string) {
-  basicLog(message, 'WARNING');
-}
-
-export function error(message: string) {
-  basicLog(message, 'WARNING');
-}
-
-export function critical(message: string) {
-  basicLog(message, 'WARNING');
-}
-
-function basicLog(message: string, loglevel: string) {
-  const logfile = path.join(
-    __dirname,
-    'logs',
-    `${new Date().getUTCFullYear()}`,
-    `${new Date().getUTCMonth()}`,
-    `${new Date().getUTCDay()}`,
-  );
-
-  console.log(logfile);
-
-  const stream = fs.createWriteStream(logfile, { flags: 'a' });
-  stream.write(`${new Date().toISOString()}:${loglevel}:${message}`);
-  stream.end();
-}
 
 import {
-  port,
-  origin,
-} from "hjb-global";
-
-import {
-  createServer,
+  createServer, Server,
 } from 'http';
 
 import express from 'express';
+
+import { info } from './Logger';
+import { port, origin } from './config';
 // import { Server } from 'socket.io';
 
-const server = createServer();
+const server = createServer() as Server;
 // const io = new Server<ClientToServerEvents, ServerToClientEvents,
 //   InterServerEvents, SocketData>(server, {
 //   cors: {
@@ -61,14 +29,21 @@ const server = createServer();
 
 
 
-const app = express(server);
+const app = express();
 
 app.get('/', (_, res) => {
   res.send('hello world');
   console.log("hola");
-  info("hello world!");
+  info("test");
+});
+
+app.get('/game', (_, res) => {
+  res.send({abc: {hello:{one: 1}}});
+  console.log("aaa");
+  info("test");
 });
 
 app.listen(port, () => {
   console.log(`app listening at ${origin}`);
 });
+

@@ -1,37 +1,19 @@
-import fs from 'fs';
-import path from 'path';
-export function debug(message) {
-    basicLog(message, 'WARNING');
-}
-export function info(message) {
-    basicLog(message, 'WARNING');
-}
-export function warning(message) {
-    basicLog(message, 'WARNING');
-}
-export function error(message) {
-    basicLog(message, 'WARNING');
-}
-export function critical(message) {
-    basicLog(message, 'WARNING');
-}
-function basicLog(message, loglevel) {
-    const logfile = path.join(__dirname, 'logs', `${new Date().getUTCFullYear()}`, `${new Date().getUTCMonth()}`, `${new Date().getUTCDay()}`);
-    console.log(logfile);
-    const stream = fs.createWriteStream(logfile, { flags: 'a' });
-    stream.write(`${new Date().toISOString()}:${loglevel}:${message}`);
-    stream.end();
-}
-import { origin, port,
-// ClientToServerEvents,
-// ServerToClientEvents,
-// InterServerEvents,
-// SocketData,
- } from 'global';
-import { createServer, } from 'http';
-import express from 'express';
+"use strict";
+// import { fileURLToPath } from 'url';
+// import fs from 'fs';
+// import path, {
+//   dirname
+// } from 'path';
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const http_1 = require("http");
+const express_1 = __importDefault(require("express"));
+const Logger_1 = __importDefault(require("./Logger"));
+const config_1 = require("./config");
 // import { Server } from 'socket.io';
-const server = createServer();
+const server = (0, http_1.createServer)();
 // const io = new Server<ClientToServerEvents, ServerToClientEvents,
 //   InterServerEvents, SocketData>(server, {
 //   cors: {
@@ -40,12 +22,17 @@ const server = createServer();
 //     credentials: true,
 //   },
 // });
-const app = express(server);
+const app = (0, express_1.default)();
 app.get('/', (_, res) => {
     res.send('hello world');
     console.log("hola");
-    info("hello world!");
+    (0, Logger_1.default)("test");
 });
-app.listen(port, () => {
+app.get('/game', (_, res) => {
+    res.send('the game');
+    console.log("aaa");
+    (0, Logger_1.default)("test");
+});
+app.listen(config_1.port, () => {
     console.log(`app listening at ${origin}`);
 });
