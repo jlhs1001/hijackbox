@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 
 const TShirtGame = React.lazy(() => import('./games/TShirtGame/Entry'));
+const Game = React.lazy(() => import('./Game'));
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='game/:code' element={
             <React.Suspense>
-              <TShirtGame />
+              <Game />
             </React.Suspense>
           } />
         </Route>
